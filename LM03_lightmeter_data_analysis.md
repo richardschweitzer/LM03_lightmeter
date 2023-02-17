@@ -6,6 +6,10 @@ Richard Schweitzer
 Do we want to output every figure as a svg instead of png? If so,
 determine here:
 
+``` r
+knitr::opts_chunk$set(dev = 'svg') # set output device to svg
+```
+
 First, load some necessary packages and the LM03 data, which was
 pre-compiled from around 1400 individual trials.
 
