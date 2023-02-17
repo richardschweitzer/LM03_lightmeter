@@ -5,6 +5,11 @@ date: "2023-02-13"
 output: github_document
 ---
 
+Do we want to output every figure as a svg instead of png? If so, determine here:
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(dev = 'svg') # set output device to svg
+```
+
 First, load some necessary packages and the LM03 data, which was pre-compiled from around 1400 individual trials. 
 ```{r}
 # packages we'll need

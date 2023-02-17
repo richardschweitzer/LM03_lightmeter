@@ -3,6 +3,9 @@ Analysis of LM03 Lightmeter Data
 Richard Schweitzer
 2023-02-13
 
+Do we want to output every figure as a svg instead of png? If so,
+determine here:
+
 First, load some necessary packages and the LM03 data, which was
 pre-compiled from around 1400 individual trials.
 
@@ -60,7 +63,7 @@ ggplot(data = lm03_data[is.element(filename, subsample_now)], aes(x = time, y = 
   labs(x = "Time [ms]", y = "Photodiode response [a.u.]", color = "Photodiode ID")
 ```
 
-![](LM03_lightmeter_data_analysis_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+![](LM03_lightmeter_data_analysis_files/figure-gfm/unnamed-chunk-2-1.svg)<!-- -->
 
 Looks reasonable, but to reduce the amount of data we could easily
 reduce the temporal range a bit.
@@ -79,7 +82,7 @@ ggplot(data = lm03_data[is.element(filename, subsample_now)], aes(x = time, y = 
   labs(x = "Time [ms]", y = "Photodiode response [a.u.]", color = "Photodiode ID")
 ```
 
-![](LM03_lightmeter_data_analysis_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+![](LM03_lightmeter_data_analysis_files/figure-gfm/unnamed-chunk-3-1.svg)<!-- -->
 
 ``` r
 # zoom in on single trials:
@@ -93,7 +96,7 @@ ggplot(data = lm03_data[is.element(filename, subsample_now[1:2])], aes(x = time,
   coord_cartesian(xlim = c(250, 350))
 ```
 
-![](LM03_lightmeter_data_analysis_files/figure-gfm/unnamed-chunk-3-2.png)<!-- -->
+![](LM03_lightmeter_data_analysis_files/figure-gfm/unnamed-chunk-3-2.svg)<!-- -->
 
 There is quite a bit of noise in there, which we can smooth, right? Its
 likely that this is not strictly noise but in fact regular luminance
@@ -126,7 +129,7 @@ ggplot(data = lm03_data[is.element(filename, subsample_now[1:2])], aes(x = time,
   coord_cartesian(xlim = c(250, 350))
 ```
 
-![](LM03_lightmeter_data_analysis_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+![](LM03_lightmeter_data_analysis_files/figure-gfm/unnamed-chunk-4-1.svg)<!-- -->
 
 ``` r
 # the entire subset, smoothed:
@@ -139,7 +142,7 @@ ggplot(data = lm03_data[is.element(filename, subsample_now)], aes(x = time, y = 
   labs(x = "Time [ms]", y = "Photodiode response [a.u.]", color = "Photodiode ID")
 ```
 
-![](LM03_lightmeter_data_analysis_files/figure-gfm/unnamed-chunk-4-2.png)<!-- -->
+![](LM03_lightmeter_data_analysis_files/figure-gfm/unnamed-chunk-4-2.svg)<!-- -->
 
 Okay, now we’ll try to extract the center of gravity of these peaks.
 Since the data is still noisy, a simple max operation wouldn’t be a
@@ -188,7 +191,7 @@ ggplot(lm03_agg, aes(x = time_between, color = direction, fill = direction)) +
        color = "Motion direction", fill = "Motion direction") 
 ```
 
-![](LM03_lightmeter_data_analysis_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](LM03_lightmeter_data_analysis_files/figure-gfm/unnamed-chunk-5-1.svg)<!-- -->
 
 This looks very clean. Now we can make a final aggregate and plot.
 Importantly, the two sensors were approximately 2 degrees of visual
@@ -249,7 +252,7 @@ ggplot(data = lm03_superagg, aes(x = spdFac, y = time_between, color = direction
        color = "Motion direction", fill = "Motion direction")
 ```
 
-![](LM03_lightmeter_data_analysis_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+![](LM03_lightmeter_data_analysis_files/figure-gfm/unnamed-chunk-6-1.svg)<!-- -->
 
 Finally, this shows that leftward and rightward motion take the same
 time when presented on the Propixx DLP projector at 1440 Hz. In
