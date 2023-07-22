@@ -9,4 +9,4 @@ The two photodiodes were horizontally aligned around screen center with a distan
 The duration between the responses of the two photodiodes would thus indicate the speed at which the stimulus traveled across the screen. 
 
 To confirm that the presented speeds were accurate and as specified, around 1400 trials were collected. The analysis of the resulting data is explained in the markdown document [LM03_lightmeter_data_analysis.md](../main/LM03_lightmeter_data_analysis.md). 
-Results are reported in the paper (in preparation) **"High-speed motion perception is constrained to the fastest movements of the human eye"** by Martin Rolfs, Richard Schweitzer, Eric Castet, Tamara L. Watson, and Sven Ohl. 
+Results are ultimately reported in this paper - https://doi.org/10.1101/2023.07.17.549281 - by Martin Rolfs, Richard Schweitzer, Eric Castet, Tamara L. Watson, and Sven Ohl. 
